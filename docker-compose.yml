@@ -153,6 +153,7 @@ services:
       - PATH_DATA=/usr/share/kibana/data
     volumes:
       - ./kibana/data:/usr/share/kibana/data
+      - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
     # links:
     #   - elasticsearch:elasticsearch
     # depends_on:
