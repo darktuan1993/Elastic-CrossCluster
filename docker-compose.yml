@@ -183,9 +183,9 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./logstash/logstash.yml:/usr/share/logstash/config/
-      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/
-      - ./logstash/logstash.template.json:/usr/share/logstash/templates/
+      - ./logstash/logstash.yaml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/logstash.template.json:/usr/share/logstash/templates/logstash.template.json
     ports:
       - 5044:5044
     # links:
