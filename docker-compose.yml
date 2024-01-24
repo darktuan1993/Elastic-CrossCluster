@@ -134,7 +134,7 @@ services:
         max-size: "10m"
         max-file: "50"
 
-  # Kibana Service
+  # Kibana Service 
   kibana:
     container_name: kibana
     image: docker.elastic.co/kibana/kibana:7.17.10
@@ -147,12 +147,16 @@ services:
     environment:
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD="dangtuan12"
-      - ELASTICSEARCH_URL=http://localhost:9200
+      - ELASTICSEARCH_URL=http://10.0.0.16:9200
       - SERVER_NAME=my-kibana
       - XPACK_SECURITY_ENABLED=true
       - PATH_DATA=/usr/share/kibana/data
     volumes:
       - ./kibana/data:/usr/share/kibana/data
+    # links:
+    #   - elasticsearch:elasticsearch
+    # depends_on:
+    #   - elasticsearch
     stdin_open: true
     tty: true
     networks:
@@ -162,11 +166,12 @@ services:
       options:
         max-size: "10m"
         max-file: "50"
-  # Logstash Service
 
+  # Logstash Service        
   logstash:
     container_name: logstash
     image: docker.elastic.co/logstash/logstash:7.17.10
+
     environment:
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD="dangtuan12"
@@ -183,6 +188,10 @@ services:
       - ./logstash/logstash.template.json:/usr/share/logstash/templates/logstash.template.json
     ports:
       - 5044:5044
+    # links:
+    #   - elasticsearch:elasticsearch
+    # depends_on:
+    #   - elasticsearch
     stdin_open: true
     tty: true
     networks:
