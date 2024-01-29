@@ -16,6 +16,8 @@ services:
       - "node.name=elasticsearch1"
       - ELASTIC_PASSWORD=dangtuan12
       - "cluster.name=es-cluster"
+      - "transport.host=0.0.0.0"
+      - "transport.tcp.port=9300"
       - "discovery.seed_hosts=elasticsearch2,elasticsearch3"
       - "cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3"
       - "ES_JAVA_OPTS=-Xms1512m -Xmx1512m"
@@ -58,6 +60,8 @@ services:
       - "node.name=elasticsearch2"
       - ELASTIC_PASSWORD=dangtuan12
       - "cluster.name=es-cluster"
+      - "transport.host=0.0.0.0"
+      - "transport.tcp.port=9300"
       - "discovery.seed_hosts=elasticsearch1,elasticsearch3"
       - "cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3"
       - "ES_JAVA_OPTS=-Xms1512m -Xmx1512m"
@@ -100,6 +104,8 @@ services:
       - "node.name=elasticsearch3"
       - ELASTIC_PASSWORD=dangtuan12
       - "cluster.name=es-cluster"
+      - "transport.host=0.0.0.0"
+      - "transport.tcp.port=9300"
       - "discovery.seed_hosts=elasticsearch2,elasticsearch1"
       - "cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3"
       - "ES_JAVA_OPTS=-Xms1512m -Xmx1512m"
